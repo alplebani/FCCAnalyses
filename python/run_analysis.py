@@ -449,7 +449,10 @@ def apply_filepath_rewrites(filepath: str) -> str:
         if filepath_splitted[1] == 'experiment':
             filepath = 'root://eospublic.cern.ch//' + filepath_stripped
         elif filepath_splitted[1] == 'user':
-            filepath = 'root://eosuser.cern.ch//' + filepath_stripped
+            # Already POSIX-mounted locally (eosxd) - read it directly
+            # instead of redirecting through XRootD/GSI, which forces a
+            # grid-cert passphrase prompt for no speed benefit on-site.
+            pass
         elif 'home-' in filepath_splitted[1]:
             filepath = 'root://eosuser.cern.ch//eos/user/' + \
                        filepath_stripped.replace('eos/home-', '')
