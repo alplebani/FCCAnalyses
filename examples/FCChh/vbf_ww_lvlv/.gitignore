@@ -3,6 +3,5 @@
 plots/
 condor/logs/
 condor/pythia_events_*.cmd
-feynman/*.aux
-feynman/*.log
-feynman/*.png
+feynman
+__pycache__/
