@@ -43,7 +43,7 @@ class Analysis():
         self.use_data_source = False
 
         # Optional: test file used with `fccanalysis run ... --test`
-        self.test_file = "/eos/user/a/alpleban/FCC/vbf_ww_lvlv/samples/mg_pp_vbf_ww_lvlv_5f_84TeV/events_015959360.edm4hep.root"
+        self.test_file = "/eos/user/a/alpleban/FCC/FCCAnalyses/examples/FCChh/vbf_ww_lvlv/samples/mg_pp_vbf_ww_lvlv_5f_84TeV/events_015959360.edm4hep.root"
 
     # Mandatory: analyzers function to define the analysis graph, please make
     # sure you return the dataframe, in this example it is dframe2
@@ -121,6 +121,9 @@ class Analysis():
             .Define("jj_pairs", "AnalysisFCChh::merge_pairs(jj_pairs_unmerged)")
             .Define("m_jj", "FCCAnalyses::ReconstructedParticle::get_mass(jj_pairs)")
             .Define("pt_jj", "FCCAnalyses::ReconstructedParticle::get_pt(jj_pairs)")
+            # invariant mass of the e + mu + two leading jets system
+            .Define("m_jjll", "(FCCAnalyses::ReconstructedParticle::get_tlv(sel_el, 0) + FCCAnalyses::ReconstructedParticle::get_tlv(sel_mu, 0)"
+                              " + FCCAnalyses::ReconstructedParticle::get_tlv(sel_jets, 0) + FCCAnalyses::ReconstructedParticle::get_tlv(sel_jets, 1)).M()")
 
             # VBF WW identification variables
             .Define("dphi_em", 'AnalysisFCChh::get_angularDist_pair(em_pairs_unmerged,"dPhiAbs")')
@@ -172,7 +175,7 @@ class Analysis():
             'MET', 'MET_x', 'MET_y', 'MET_phi',
             'n_jets', 'n_bjets', 'n_bjets_loose', 'n_centraljets',
             'j1_pt', 'j1_eta', 'j1_phi', 'j2_pt', 'j2_eta', 'j2_phi',
-            'm_jj', 'dphi_jj', 'deta_jj', 'pt_jj',
+            'm_jj', 'dphi_jj', 'deta_jj', 'pt_jj', 'm_jjll',
             'dphi_emMET',
             'n_genWp', 'n_genWm',
         ]

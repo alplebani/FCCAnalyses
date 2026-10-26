@@ -44,8 +44,11 @@ grep -v '^Beams:' "${CARD_TEMPLATE}" > "${CARD}"
 
 mkdir -p "${OUTPUT_DIR}"
 
+# FCC-hh scenario II with full track-covariance smearing
+DELPHES_CARD="${DELPHES_DIR}/cards/FCC/scenarios/FCChhTrackCov_II.tcl"
+
 DelphesPythia8_EDM4HEP \
-    "${DELPHES_DIR}/cards/FCC/scenarios/FCChh_II.tcl" \
+    "${DELPHES_CARD}" \
     "${K4SIMDELPHES}/edm4hep_output_config.tcl" \
     "${CARD}" \
     "${OUTPUT_FILE}"

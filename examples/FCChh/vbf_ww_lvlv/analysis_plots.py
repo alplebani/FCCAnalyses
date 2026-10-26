@@ -29,11 +29,13 @@ variables = histoList.keys()
 # Selections to plot, named the same as in analysis_final.py's cutList
 extralabel = {}
 extralabel['sel0_all'] = 'Preselection events'
-extralabel['sel1_bjeteveto'] = 'b-jet veto'
-extralabel['sel2_jeteveto'] = '2-jet exclusive'
-extralabel['sel3_both'] = '2-jet exclusive and b-jet veto'
-extralabel['sel4_mjj'] = 'm_{jj}, #Delta#eta_{jj} cut applied'
-extralabel['sel5_mem'] = 'm_{e#mu} cut applied'
+extralabel['sel1_lep'] = 'OS e#mu, p_{T}^{l} > 27 GeV'
+extralabel['sel2_mll'] = '+ m_{e#mu} > 80 GeV'
+extralabel['sel3_met'] = '+ E_{T}^{miss} > 15 GeV'
+extralabel['sel4_bveto'] = '+ b-jet veto'
+extralabel['sel5_njets'] = '+ exactly 2 jets'
+extralabel['sel6_zeta'] = '+ #zeta > 0.5 (ATLAS SR)'
+extralabel['sel7_mjj'] = '+ m_{jj} > 500 GeV'
 
 selections = {}
 selections['vbf_ww_lvlv'] = extralabel.keys()

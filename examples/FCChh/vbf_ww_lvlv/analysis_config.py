@@ -17,6 +17,6 @@ input_dir = '/eos/user/a/alpleban/FCC/vbf_ww_lvlv/samples'
 
 # NOTE: trailing slashes are required - do_plots.py builds paths with plain
 # string concatenation (inputDir + filename), not os.path.join.
-stage1_output = '/eos/user/a/alpleban/FCC/vbf_ww_lvlv/outputs/stage1/'
-final_output = '/eos/user/a/alpleban/FCC/vbf_ww_lvlv/outputs/final/'
-plots_output = '/eos/user/a/alpleban/FCC/vbf_ww_lvlv/outputs/plots/'
+stage1_output = '/eos/user/a/alpleban/FCC/FCCAnalyses/examples/FCChh/vbf_ww_lvlv/outputs/stage1/'
+final_output = '/eos/user/a/alpleban/FCC/FCCAnalyses/examples/FCChh/vbf_ww_lvlv/outputs/final/'
+plots_output = '/eos/user/a/alpleban/FCC/FCCAnalyses/examples/FCChh/vbf_ww_lvlv/outputs/plots/'
