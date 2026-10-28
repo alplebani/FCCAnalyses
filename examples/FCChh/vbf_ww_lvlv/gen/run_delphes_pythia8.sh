@@ -15,11 +15,8 @@ cd "$(dirname "$0")"
 
 source /cvmfs/sw.hsf.org/key4hep/setup.sh -r 2026-04-08
 
-# FCC-hh scenario II with full track-covariance smearing
-DELPHES_CARD="$DELPHES_DIR/cards/FCC/scenarios/FCChhTrackCov_II.tcl"
-
 DelphesPythia8_EDM4HEP \
-    "${DELPHES_CARD}" \
+    "$DELPHES_DIR/cards/FCC/scenarios/FCChh_II.tcl" \
     "$K4SIMDELPHES/edm4hep_output_config.tcl" \
     mg_pp_vbf_ww_lvlv_5f_84TeV.cmd \
     "${OUTPUT_FILE}"
