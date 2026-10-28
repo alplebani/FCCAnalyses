@@ -1,0 +1,8 @@
+# Produced locally, not shared
+*.root
+plots/
+condor/logs/
+condor/pythia_events_*.cmd
+feynman
+__pycache__/
+outputs/

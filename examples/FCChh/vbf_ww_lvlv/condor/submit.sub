@@ -1,0 +1,28 @@
+# HTCondor submission for mg_pp_vbf_ww_lvlv_5f_84TeV: one job per LHE
+# fragment, running DelphesPythia8_EDM4HEP (Pythia8 shower + Delphes fast-sim,
+# FCC-hh scenario II) via run_fragment.sh.
+#
+# If this lives on /eos, it needs CERN's EosSubmit schedds - standard batch
+# schedds reject submit files referencing /eos paths outright. Submit with:
+#   module load lxbatch/eossubmit
+#   cd <this directory>
+#   mkdir -p logs
+#   export OUTPUT_DIR=/eos/user/<x>/<you>/.../mg_pp_vbf_ww_lvlv_5f_84TeV   # optional
+#   condor_submit submit.sub
+#
+# Each job takes roughly 20-25 min for the full 10000-event fragment (single
+# thread) - "workday" (8h) leaves comfortable margin.
+
+executable = run_fragment.sh
+arguments  = $(lhefile)
+environment = "OUTPUT_DIR=$ENV(OUTPUT_DIR)"
+
+output = logs/$(ClusterId).$(ProcId).out
+error  = logs/$(ClusterId).$(ProcId).err
+log    = logs/$(ClusterId).log
+
+request_cpus   = 1
+request_memory = 2GB
++JobFlavour = "workday"
+
+queue lhefile from fragments.txt
