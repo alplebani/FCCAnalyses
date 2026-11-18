@@ -8,7 +8,8 @@
 fraction = 1.0
 
 process_list = {
-    'mg_pp_vbf_ww_lvlv_5f_84TeV': {'fraction': fraction},
+    # 'mg_pp_vbf_ww_lvlv_5f_84TeV': {'fraction': fraction},           # FCChh_II.tcl
+    'mg_pp_vbf_ww_lvlv_5f_84TeV_TrackCov': {'fraction': fraction},  # FCChhTrackCov_II.tcl
 }
 
 # Directory containing one subdirectory per process (see above). Condor jobs

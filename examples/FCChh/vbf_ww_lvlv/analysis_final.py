@@ -32,6 +32,8 @@ procDictAdd = {
         'crossSection': 11.8889861497, 'kfactor': 1.0, 'matchingEfficiency': 1.0,
     },
 }
+# same LHE events, only the Delphes card differs
+procDictAdd['mg_pp_vbf_ww_lvlv_5f_84TeV_TrackCov'] = dict(procDictAdd['mg_pp_vbf_ww_lvlv_5f_84TeV'])
 
 # Expected integrated luminosity (FCC-hh baseline), in pb-1
 intLumi = 30e+06
