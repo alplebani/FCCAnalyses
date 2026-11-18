@@ -13,7 +13,7 @@ import vbf_ww_lvlv.analysis_config as analysis_config
 
 # global parameters
 intLumi = 30e+06  # in pb-1
-ana_tex = 'VBF W^{+}W^{-} #rightarrow e#mu + #nu#nu'
+ana_tex = 'VBF W^{+}W^{-}#rightarrow e#mu#nu#nu'
 delphesVersion = '3.5.1'
 energy = 84
 collider = 'FCC-hh'
@@ -23,6 +23,8 @@ yaxis = ['log']
 stacksig = ['nostack']
 outdir = analysis_config.plots_output
 plotStatUnc = True
+legendCoord = [0.40, 0.80, 0.90, 0.88]  # x1, y1, x2, y2 (NDC), keeps legend inside the frame
+legendTextSize = 0.03
 
 variables = histoList.keys()
 
@@ -35,20 +37,23 @@ extralabel['sel3_met'] = '+ E_{T}^{miss} > 15 GeV'
 extralabel['sel4_bveto'] = '+ b-jet veto'
 extralabel['sel5_njets'] = '+ exactly 2 jets'
 extralabel['sel6_zeta'] = '+ #zeta > 0.5 (ATLAS SR)'
-extralabel['sel7_mjj'] = '+ m_{jj} > 500 GeV'
+extralabel['sel7_mjj'] = 'Final selection'
 
 selections = {}
-selections['vbf_ww_lvlv'] = extralabel.keys()
+selections['vbf_ww_lvlv'] = ['sel7_mjj']  # final selection only; use extralabel.keys() for all
 
 colors = {}
-colors['vbf_ww_lvlv'] = ROOT.kRed
+# colors['vbf_ww_lvlv'] = ROOT.kRed
+colors['vbf_ww_lvlv_trackcov'] = ROOT.kBlue
 
 # this is selection : signal/backgrounds category : {final histo label : [set of input procs]}
 plots = {}
 plots['vbf_ww_lvlv'] = {}
 plots['vbf_ww_lvlv']['signal'] = {}
-plots['vbf_ww_lvlv']['signal']['vbf_ww_lvlv'] = ['mg_pp_vbf_ww_lvlv_5f_84TeV']
+# plots['vbf_ww_lvlv']['signal']['vbf_ww_lvlv'] = ['mg_pp_vbf_ww_lvlv_5f_84TeV']
+plots['vbf_ww_lvlv']['signal']['vbf_ww_lvlv_trackcov'] = ['mg_pp_vbf_ww_lvlv_5f_84TeV_TrackCov']
 plots['vbf_ww_lvlv']['backgrounds'] = {}
 
 legend = {}
-legend['vbf_ww_lvlv'] = 'VBF W^{+}W^{-}#rightarrow e#mu#nu#nu'
+# legend['vbf_ww_lvlv'] = 'VBF W^{+}W^{-}#rightarrow e#mu#nu#nu (FCChh_II)'
+legend['vbf_ww_lvlv_trackcov'] = 'VBF W^{+}W^{-}#rightarrow e#mu#nu#nu'
